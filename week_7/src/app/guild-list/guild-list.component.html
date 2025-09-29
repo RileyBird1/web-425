@@ -1,0 +1,62 @@
+<style>
+  table {
+  font-family: 'Times New Roman', Times, serif;
+  border-collapse: collapse;
+  width: 75%;
+}
+
+td, th {
+  border: 1px solid #c9bd9e;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #e9e3d0;}
+
+tr:hover {background-color: #c9bd9e;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #8b6949;
+  color: white;
+}
+</style>
+
+<div class="guild-items flex-grow-1">
+  <h1>Guild Characters</h1>
+  @if (guildCharacters.length === 0) {
+    <p>No guilds available.</p>
+  } @else {
+    <table
+      class="guild-table w-full"
+      border="1"
+      cellpadding="4"
+      cellspacing="0"
+    >
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Accepted Terms</th>
+          <th>Notifications</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let guild of guildCharacters; let i = index">
+          <td>{{ guild.guildName }}</td>
+          <td>{{ guild.description }}</td>
+          <td>{{ guild.type }}</td>
+          <td>{{ guild.acceptTerms ? 'Yes' : 'No' }}</td>
+          <td>
+            <span *ngIf="guild.notificationPreference.email">Email </span>
+            <span *ngIf="guild.notificationPreference.sms">SMS </span>
+            <span *ngIf="guild.notificationPreference.inApp">InApp</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  }
+</div>
+

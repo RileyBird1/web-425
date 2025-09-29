@@ -1,0 +1,22 @@
+table {
+  font-family: 'Times New Roman', Times, serif;
+  border-collapse: collapse;
+  width: 75%;
+}
+
+td, th {
+  border: 1px solid #c9bd9e;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #e9e3d0;}
+
+tr:hover {background-color: #c9bd9e;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #8b6949;
+  color: white;
+}
